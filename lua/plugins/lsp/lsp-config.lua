@@ -28,17 +28,17 @@ return {
                 'cssls',
                 'emmet_ls',
                 'html',
-                'intelephense',
-                'jdtls',
+                --'intelephense',
+                --'jdtls',
                 'jsonls',
-                'ltex',
+                --'ltex',
                 'lua_ls',
-                'ruff',
-                'rust_analyzer',
-                'texlab',
+                --'ruff',
+                --'rust_analyzer',
+                --'texlab',
                 'ts_ls',
-                'volar',
-                'yamlls',
+                --'volar',
+                --'yamlls',
             },
         })
 
@@ -360,7 +360,8 @@ return {
             },
             init_options = {
                 typescript = {
-                    tsdk = '/Users/ilias/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib',
+                    tsdk =
+                    '/Users/ilias/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib',
                 },
                 preferences = {
                     disableSuggestions = true,

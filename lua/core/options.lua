@@ -71,7 +71,7 @@ vim.opt.path:append('**')
 
 -- Spell
 vim.opt.spell = false
-vim.opt.spelllang = { 'de' }
+--vim.opt.spelllang = { 'de' }
 
 -- Split
 vim.opt.splitright = true

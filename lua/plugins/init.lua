@@ -131,6 +131,7 @@ return {
     --  ╰──────────────────────────────────────────────────────────╯
     {
         'lervag/vimtex',
+        enabled =false,
         ft = 'tex',
         init = function()
             vim.g.vimtex_view_method = 'skim'
@@ -138,6 +139,7 @@ return {
     },
     {
         'kaarmu/typst.vim',
+        enabled = false,
         ft = 'typst',
     },
     {
@@ -223,6 +225,7 @@ return {
     --  ╰──────────────────────────────────────────────────────────╯
     {
         'mfussenegger/nvim-dap',
+        enabled = false,
         cmd = { 'DapToggleBreakpoint' },
         keys = {
             { '<leader>db', '<cmd>DapToggleBreakpoint<cr>', desc = 'Add Breakpoint' },
@@ -240,6 +243,7 @@ return {
     },
     {
         'rcarriga/nvim-dap-ui',
+        enabled = false,
         keys = {
             { '<leader>du', '<cmd>lua require("dapui").toggle()<CR>', desc = 'DAP UI Toggle' },
         },
@@ -255,6 +259,7 @@ return {
     --  ╰──────────────────────────────────────────────────────────╯
     {
         'mfussenegger/nvim-jdtls',
+        enabled = false,
         ft = 'java',
         dependencies = {
             'mfussenegger/nvim-dap',

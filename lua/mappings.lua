@@ -4,7 +4,7 @@ local map = vim.keymap.set
 -- CTRL+S = Salvar
 -- CTRL+q = wqa
 -- CTRL+d = deleta conteudo todo
--- CTRL+c = copiar conteduo todo
+-- ALT+c = copiar conteudo todo
 -- CTRL+n = NvimTreeToggle
 -- CTRL+n = NvimTreeFocus
 -- SELECT + gf = abrir arquivo
@@ -26,7 +26,7 @@ map("n", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Save / quit
+-- Save / quit / copy
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Salvar arquivo" })
 map("n", "<C-q>", "<cmd>wqa<CR>", { desc = "Salvar e sair de tudo" })
 map("n", "<F2>", "<cmd>qa!<CR>", { desc = "Sair sem salvar" })
@@ -34,6 +34,7 @@ map("i", "<C-s>", "<Esc><cmd>w<CR>a", { desc = "Salvar arquivo" })
 map("i", "<C-s>", "<Esc><cmd>wqa<CR>a", { desc = "Salvar e sair de tudo" })
 map("n", "<leader>qq", "<cmd>wqa<CR>", { desc = "Salvar e sair de tudo" })
 map("n", "<leader>qQ", "<cmd>qa!<CR>", { desc = "Sair sem salvar" })
+map("n", "<A-c>", "<cmd> %y+ <CR>", { desc = "Copiar conteúdo todo" })
 
 -- Cheatsheet
 map("n", "<F1>", "<cmd>edit ~/.config/nvim/lua/mappings.lua<CR>", {

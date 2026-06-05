@@ -1,12 +1,9 @@
 return {
-  install = {
-    colorscheme = {
-      "catppuccin-frappe",
-      "kanagawa",
-      "vague",
-      "moonfly",
-      "nordic",
-      "everforest",
-    },
-  },
+  install = { colorscheme = { "nightfox" } },
+  install = { colorscheme = { "kanagawa" } },
+  install = { colorscheme = { "vague" } },
+  install = { colorscheme = { "catppuccin-frappe" } },
+  install = { colorscheme = { "moonfly" } },
+  install = { colorscheme = { "nordic" } },
+  install = { colorscheme = { "everforest" } },
 }

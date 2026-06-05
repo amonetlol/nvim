@@ -1,3 +1,4 @@
+-- lua/mappings.lua
 local map = vim.keymap.set
 
 -- CTRL+S = Salvar
@@ -10,6 +11,7 @@ local map = vim.keymap.set
 -- ALT+q = fecha buffer
 -- Cursor MOUSE + gx = abri link no navegador
 -- F1 = cheatsheet
+-- F2 = sair sem salvar
 -- split = :sp
 -- vsplit = :vp
 -- Novo Arquivo = :enew
@@ -17,99 +19,84 @@ local map = vim.keymap.set
 -- :vp | term = vsplit terminal
 
 -- ### TERMminal ###
--- Ctrl + ' = float term
--- CTRL + \ = horizontal term
--- Sair = exit 
+-- CTRL + \ = float term
+-- Sair = exit
 
--- general mappings
-map("n", "<C-s>", "<cmd> w <CR>")
-map("i", "jk", "<ESC>")
-map("n", "<C-c>", "<cmd> %y+ <CR>") -- copy whole filecontent
-map("n", "<C-d>", function()
-  vim.cmd("%d")
-  --vim.notify("Conteúdo do arquivo deletado", vim.log.levels.INFO)
-end, { desc = "🗑️ Deletar todo o conteúdo" })
+map("n", "<Space>", "<Nop>", { silent = true })
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- nvimtree
-map("n", "<C-n>", "<cmd> NvimTreeToggle <CR>")
-map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Explorer" })
-map("n", "<C-h>", "<cmd> NvimTreeFocus <CR>")
-map("n", "<leader>E", "<cmd> NvimTreeFocus <CR>", { desc = "Explorer Focus" })
+-- Save / quit
+map("n", "<C-s>", "<cmd>w<CR>", { desc = "Salvar arquivo" })
+map("n", "<C-q>", "<cmd>wqa<CR>", { desc = "Salvar e sair de tudo" })
+map("n", "<F2>", "<cmd>qa!<CR>", { desc = "Sair sem salvar" })
+map("i", "<C-s>", "<Esc><cmd>w<CR>a", { desc = "Salvar arquivo" })
+map("i", "<C-s>", "<Esc><cmd>wqa<CR>a", { desc = "Salvar e sair de tudo" })
+map("n", "<leader>qq", "<cmd>wqa<CR>", { desc = "Salvar e sair de tudo" })
+map("n", "<leader>qQ", "<cmd>qa!<CR>", { desc = "Sair sem salvar" })
 
--- ==================== TELESCOPE ================================================================================
+-- Cheatsheet
+map("n", "<F1>", "<cmd>edit ~/.config/nvim/lua/mappings.lua<CR>", {
+  desc = "Abrir cheatsheet de atalhos",
+})
 
-vim.keymap.set("n", "<leader>t", "<Nop>", { desc = "+Telescope" })
+-- Explorer
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Explorer toggle" })
+map("n", "<leader>E", "<cmd>NvimTreeFocus<CR>", { desc = "Explorer focus" })
 
--- Find Files
-vim.keymap.set("n", "<leader>tf", function()
+-- Telescope
+map("n", "<leader>ff", function()
   require("telescope.builtin").find_files()
-end, { desc = "Find Files (cwd)" })
+end, { desc = "Find files" })
 
--- Find Files no Home
-vim.keymap.set("n", "<leader>tH", function()
+map("n", "<leader>fH", function()
   require("telescope.builtin").find_files {
     cwd = vim.fn.expand "~",
     hidden = true,
   }
-end, { desc = "Find Files (Home)" })
+end, { desc = "Find files Home" })
 
--- Old Files
-vim.keymap.set("n", "<leader>to", function()
-  require("telescope.builtin").oldfiles()
-end, { desc = "Old Files" })
-
--- Live Grep (cwd)
-vim.keymap.set("n", "<leader>tw", function()
+map("n", "<leader>fg", function()
   require("telescope.builtin").live_grep()
-end, { desc = "Live Grep (cwd)" })
+end, { desc = "Live grep" })
 
--- Live Grep no Home
-vim.keymap.set("n", "<leader>th", function() -- mudei para <leader>th pra ficar consistente
-  require("telescope.builtin").live_grep {
-    cwd = vim.fn.expand "~",
-    additional_args = { "--hidden" },
-  }
-end, { desc = "Live Grep (Home)" })
+map("n", "<leader>fo", function()
+  require("telescope.builtin").oldfiles()
+end, { desc = "Recent files" })
 
--- Git Status
-vim.keymap.set("n", "<leader>tg", function()
-  require("telescope.builtin").git_status()
-end, { desc = "Git Status" })
+map("n", "<leader>fh", function()
+  require("telescope.builtin").help_tags()
+end, { desc = "Help tags" })
 
--- ==================== FIM_TELESCOPE ================================================================================
+-- Buffers
+map("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>", { desc = "Próximo buffer" })
+map("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { desc = "Buffer anterior" })
 
--- bufferline, cycle buffers
-map("n", "<Tab>", "<cmd> BufferLineCycleNext <CR>")
-map("n", "<S-Tab>", "<cmd> BufferLineCyclePrev <CR>")
-map("n", "<A-q>", "<cmd> bd <CR>")
+map("n", "<A-q>", function()
+  local current_buf = vim.api.nvim_get_current_buf()
+  local current_ft = vim.bo[current_buf].filetype
 
--- comment.nvimmap("n", "<leader>q", { "<cmd>qwa<CR>", desc = ":qwa" })
-map("n", "<leader>/", "gcc", { remap = true })
-map("v", "<leader>/", "gc", { remap = true })
+  if current_ft == "NvimTree" then
+    vim.cmd "wincmd p"
+    return
+  end
 
--- Fechar / Salvar
-map("n", "<leader>q", "<cmd>wqa<CR>", { desc = ":wqa" })
-map("n", "<C-q>", "<cmd>wqa<CR>", { desc = ":wqa" })
-map("n", "<leader>Q", "<cmd>q!<CR>", { desc = ":q!" })
+  vim.cmd "BufferLineCycleNext"
+  vim.cmd("bdelete " .. current_buf)
+end, { desc = "Fechar buffer atual" })
 
--- ==================== Settings ================================================================================
-map("n", "<leader>c", "<Nop>", { desc = " Settings" })
-map("n", "<leader>ct", "<cmd>Themery<cr>", { desc = " Themery - Switch theme" })
-map("n", "<leader>cr", "<cmd>so<cr>", { desc = "󰑓 Reload config" })
+-- Config
+map("n", "<leader>ct", "<cmd>Themery<CR>", { desc = "Tema" })
+map("n", "<leader>cr", "<cmd>source %<CR>", { desc = "Reload" })
+map("n", "<leader>cf", "<cmd>edit ~/.config/nvim/lua/mappings.lua<CR>", {
+  desc = "Cheatsheet",
+})
 
--- cheatsheet Mappings
-map('n', '<leader>cf', function()
-    local mappings_file = vim.fn.expand('~/.config/nvim/lua/mappings.lua')
-    vim.cmd('edit ' .. vim.fn.fnameescape(mappings_file))
-end, { desc = "cheatsheet (mappings.lua) F1" })
-
-map("n", "<F1>", "<cmd>edit ~/.config/nvim/lua/mappings.lua<cr>", { desc = "cheatsheet (mappings.lua)" })
-
--- format
-map("n", "<leader>cc", function()
+-- Format
+map("n", "<leader>cm", function()
   require("conform").format()
-end, { desc = "Formatar codigo" })
+end, { desc = "Formatar código" })
 
--- ==================== FIM_Settings ================================================================================
-
-
+-- Links e arquivos nativos do Vim
+map("n", "gx", "gx", { desc = "Abrir link no navegador" })
+map("n", "gf", "gf", { desc = "Abrir arquivo sob cursor" })

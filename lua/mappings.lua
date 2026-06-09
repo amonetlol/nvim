@@ -102,3 +102,28 @@ end, { desc = "Formatar código" })
 -- Links e arquivos nativos do Vim
 map("n", "gx", "gx", { desc = "Abrir link no navegador" })
 map("n", "gf", "gf", { desc = "Abrir arquivo sob cursor" })
+
+-- Copy PATH
+vim.keymap.set('n', '<leader>cp', function()
+  local full = vim.fn.expand('%:p')
+  vim.fn.setreg('+', full)
+  print('✅ Caminho completo copiado: ' .. full)
+end, { desc = 'Copiar caminho completo do arquivo' })
+
+vim.keymap.set('n', '<leader>cr', function()
+  local rel = vim.fn.expand('%')
+  vim.fn.setreg('+', rel)
+  print('✅ Caminho relativo copiado: ' .. rel)
+end, { desc = 'Copiar caminho relativo' })
+
+vim.keymap.set('n', '<leader>cd', function()
+  local dir = vim.fn.expand('%:p:h')
+  vim.fn.setreg('+', dir)
+  print('✅ Diretório copiado: ' .. dir)
+end, { desc = 'Copiar diretório do arquivo' })
+
+vim.keymap.set('n', '<leader>cf', function()
+  local name = vim.fn.expand('%:t')
+  vim.fn.setreg('+', name)
+  print('✅ Nome do arquivo copiado: ' .. name)
+end, { desc = 'Copiar nome do arquivo' })

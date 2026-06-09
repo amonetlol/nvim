@@ -37,6 +37,7 @@ return {
       require("themery").setup({
         themes = {
           "catppuccin-frappe",
+          "catppuccin-mocha",
           "kanagawa",
           "vague",
           "moonfly",

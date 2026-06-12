@@ -115,6 +115,26 @@ vim.list_extend(plugins, {
       require "plugins.configs.toggleterm"
     end,
   },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = {
+      filetypes = { "*" },
+      user_default_options = {
+        RGB = true,
+        RRGGBB = true,
+        names = true,
+        RRGGBBAA = true,
+        AARRGGBB = true,
+        rgb_fn = true,
+        hsl_fn = true,
+        css = true,
+        css_fn = true,
+        mode = "background",
+      },
+    },
+  },
 })
 
 return plugins

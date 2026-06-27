@@ -42,6 +42,12 @@ return {
   },
 
   {
+    "EdenEast/nightfox.nvim",
+    priority = 900,
+    lazy = false,
+  },
+
+  {
     "shaunsingh/nord.nvim",
     priority = 900,
     lazy = false,
@@ -49,12 +55,6 @@ return {
 
   {
     "Mofiqul/dracula.nvim",
-    priority = 900,
-    lazy = false,
-  },
-
-  {
-    "olimorris/onedarkpro.nvim",
     priority = 900,
     lazy = false,
   },
@@ -69,6 +69,13 @@ return {
   {
     "sainnhe/sonokai",
     priority = 900,
+    lazy = false,
+  },
+
+  {
+    "navarasu/onedark.nvim",
+    priority = 900,
+    lazy = false,
   },
 
   {
@@ -90,6 +97,12 @@ return {
   },
 
   {
+    "folke/tokyonight.nvim",
+    priority = 900,
+    lazy = false,
+  },
+
+  {
     "zaldih/themery.nvim",
     lazy = false,
     config = function()
@@ -105,13 +118,14 @@ return {
           "gruvbox",
           "nightfox",
           "nord",
-          "dracula",
-            "onedarkpro",
-            "solarized",
-            "sonokai",
-            "melange",
-            "bamboo",
-            "edge",
+          "dracula",            
+          "solarized",
+          "sonokai",
+          "melange",
+          "bamboo",
+          "edge",
+          "onedark",
+          "tokyonight",
         },
         livePreview = true,
       })

@@ -31,11 +31,6 @@ return {
   },
 
   {
-    "ellisonleao/gruvbox-nvim",
-    priority = 900,
-  },
-
-  {
     "EdenEast/gruvbox.nvim",
     priority = 900,
   },

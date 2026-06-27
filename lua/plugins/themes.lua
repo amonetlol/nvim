@@ -31,7 +31,7 @@ return {
   },
 
   {
-    "EdenEast/gruvbox.nvim",
+    "ellisonleao/gruvbox.nvim",
     priority = 900,
   },
 

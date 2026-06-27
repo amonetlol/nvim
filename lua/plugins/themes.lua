@@ -61,7 +61,6 @@ return {
 
   {
     "craftzdog/solarized-osaka.nvim",
-    name = "solarized",
     priority = 900,
     lazy = false,
   },
@@ -119,7 +118,7 @@ return {
           "nightfox",
           "nord",
           "dracula",            
-          "solarized",
+          "solarized-osaka",
           "sonokai",
           "melange",
           "bamboo",

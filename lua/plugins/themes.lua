@@ -31,6 +31,26 @@ return {
   },
 
   {
+    "ellisonleao/gruvbox-nvim",
+    priority = 900,
+  },
+
+  {
+    "EdenEast/gruvbox.nvim",
+    priority = 900,
+  },
+
+  {
+    "nordtheme/vim",
+    priority = 900,
+  },
+
+  {
+    "dracula/nvim",
+    priority = 900,
+  },
+
+  {
     "zaldih/themery.nvim",
     lazy = false,
     config = function()
@@ -43,6 +63,10 @@ return {
           "moonfly",
           "nordic",
           "everforest",
+          "gruvbox",
+          "nightfox",
+          "nordtheme",
+          "dracula",
         },
         livePreview = true,
       })

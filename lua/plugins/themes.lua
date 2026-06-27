@@ -36,12 +36,42 @@ return {
   },
 
   {
-    "nordtheme/vim",
+    "shaunsingh/nord.nvim",
     priority = 900,
   },
 
   {
-    "dracula/nvim",
+    "Mofiqul/dracula.nvim",
+    priority = 900,
+  },
+
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 900,
+  },
+
+  {
+    "craftzdog/solarized-osaka.nvim",
+    priority = 900,
+  },
+
+  {
+    "sainnhe/sonokai",
+    priority = 900,
+  },
+
+  {
+    "savq/melange-nvim",
+    priority = 900,
+  },
+
+  {
+    "ribru17/bamboo.nvim",
+    priority = 900,
+  },
+
+  {
+    "sainnhe/edge",
     priority = 900,
   },
 
@@ -60,8 +90,14 @@ return {
           "everforest",
           "gruvbox",
           "nightfox",
-          "nordtheme",
+          "nord",
           "dracula",
+            "onedarkpro",
+            "solarized",
+            "sonokai",
+            "melange",
+            "bamboo",
+            "edge",
         },
         livePreview = true,
       })

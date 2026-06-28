@@ -102,6 +102,12 @@ return {
   },
 
   {
+    "vossenwout/guts.nvim",
+    priority = 900,
+    lazy = false,
+  },
+
+  {
     "zaldih/themery.nvim",
     lazy = false,
     config = function()
@@ -125,6 +131,7 @@ return {
           "edge",
           "onedark",
           "tokyonight",
+          "guts",
         },
         livePreview = true,
       })

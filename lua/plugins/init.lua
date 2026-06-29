@@ -135,6 +135,11 @@ vim.list_extend(plugins, {
       },
     },
   },
+  {
+  'nemanjamalesija/smart-paste.nvim',
+  event = 'VeryLazy',
+  config = true,
+  },
 })
 
 return plugins

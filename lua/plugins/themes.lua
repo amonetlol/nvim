@@ -108,6 +108,50 @@ return {
   },
 
   {
+    "jpwol/thorn.nvim",
+    lazy = false,
+    priority = 900,
+  },
+
+  {
+    "metalelf0/kintsugi-nvim",
+    lazy = false,
+    priority = 900,
+    config = function()
+    require("kintsugi").setup({
+      variant = "dark"
+    })
+    -- vim.cmd.colorscheme("kintsugi")   ← não coloque aqui
+  end,
+  },
+
+  {
+    "ember-theme/nvim",
+    name = "ember",
+    lazy = false,
+    priority = 900,
+  },
+
+  {
+   "zitrocode/carvion.nvim",
+    lazy = false,
+    priority = 900,
+  },
+
+  {
+   'ThorstenRhau/token',
+   lazy = false,
+   priority = 900,
+  },
+
+  {
+    "danfry1/lume",
+    lazy = false,
+    priority = 900,
+   },
+
+
+  {
     "zaldih/themery.nvim",
     lazy = false,
     config = function()
@@ -132,6 +176,11 @@ return {
           "onedark",
           "tokyonight",
           "guts",
+          "thorn",
+          "kintsugi-dark",
+          "ember",
+          "carvion",
+          "lume", 
         },
         livePreview = true,
       })

@@ -150,6 +150,12 @@ return {
     priority = 900,
    },
 
+   {
+    "mitander/flume.nvim",
+    lazy = false,
+    priority = 900,
+   }
+
 
   {
     "zaldih/themery.nvim",
@@ -157,6 +163,7 @@ return {
     config = function()
       require("themery").setup({
         themes = {
+          "flume",
           "catppuccin-frappe",
           "catppuccin-mocha",
           "kanagawa",

@@ -154,7 +154,7 @@ return {
     "mitander/flume.nvim",
     lazy = false,
     priority = 900,
-   }
+   },
 
 
   {

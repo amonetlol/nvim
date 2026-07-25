@@ -166,6 +166,9 @@ return {
     "GooseRooster/osc-colors.nvim",
     lazy = false,
     priority = 900,
+    config = function()
+      require("osc-colors").setup({})
+    end,
    },
 
 
@@ -175,7 +178,11 @@ return {
     config = function()
       require("themery").setup({
         themes = {
-          "osc-colors",
+          {
+            name = "OSC Colors",
+            colorscheme = "default",
+            after = [[require("osc-colors").refresh()]],
+          },
           "hardhat",
           "flume",
           "catppuccin-frappe",

@@ -162,6 +162,12 @@ return {
     priority = 900,
    },
 
+   {
+    "GooseRooster/osc-colors.nvim",
+    lazy = false,
+    priority = 900,
+   },
+
 
   {
     "zaldih/themery.nvim",
@@ -169,6 +175,7 @@ return {
     config = function()
       require("themery").setup({
         themes = {
+          "osc-colors",
           "hardhat",
           "flume",
           "catppuccin-frappe",

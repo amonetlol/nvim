@@ -156,6 +156,12 @@ return {
     priority = 900,
    },
 
+   {
+    "g-kirti/hardhat.nvim",
+    lazy = false,
+    priority = 900,
+   },
+
 
   {
     "zaldih/themery.nvim",
@@ -163,6 +169,7 @@ return {
     config = function()
       require("themery").setup({
         themes = {
+          "hardhat",
           "flume",
           "catppuccin-frappe",
           "catppuccin-mocha",

@@ -27,11 +27,16 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Save / quit / copy
+local quit_nosave = "<cmd>qa!<CR>"
+
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "Salvar arquivo" })
 map("n", "<C-q>", "<cmd>wqa<CR>", { desc = "Salvar e sair de tudo" })
-map("n", "<F2>", "<cmd>qa!<CR>", { desc = "Sair sem salvar" })
+map("n", "<F2>", quit_nosave, { desc = "Sair sem salvar" })
 map("i", "<C-s>", "<Esc><cmd>w<CR>a", { desc = "Salvar arquivo" })
 map("i", "<C-q>", "<Esc><cmd>wqa<CR>a", { desc = "Salvar e sair de tudo" })
+map("i", "<F2>", "<Esc>" .. quit_nosave, { desc = "Sair sem salvar" })
+map("v", "<F2>", "<Esc>" .. quit_nosave, { desc = "Sair sem salvar" })
+map("t", "<F2>", [[<C-\><C-n>]] .. quit_nosave, { desc = "Sair sem salvar" })
 map("n", "<leader>qq", "<cmd>wqa<CR>", { desc = "Salvar e sair de tudo" })
 map("n", "<leader>qQ", "<cmd>qa!<CR>", { desc = "Sair sem salvar" })
 map("n", "<A-c>", "<cmd> %y+ <CR>", { desc = "Copiar conteúdo todo" })

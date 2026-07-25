@@ -26,6 +26,21 @@ o.splitbelow = true
 o.splitright = true
 o.termguicolors = true
 o.timeoutlen = 400
+
+-- Neovim 0.12 + foot: kitty keyboard protocol can make F-keys unreliable
+if vim.fn.has("nvim-0.12") == 1 and vim.env.TERM and vim.env.TERM:match("^foot") then
+  vim.api.nvim_create_autocmd("VimEnter", {
+    once = true,
+    callback = function()
+      io.stdout:write("\027[>1u")
+    end,
+  })
+  vim.api.nvim_create_autocmd("VimLeavePre", {
+    callback = function()
+      io.stdout:write("\027[<1u")
+    end,
+  })
+end
 o.undofile = true
 o.cursorline = true
 

@@ -162,27 +162,12 @@ return {
     priority = 900,
    },
 
-   {
-    "GooseRooster/osc-colors.nvim",
-    lazy = false,
-    priority = 900,
-    config = function()
-      require("osc-colors").setup({})
-    end,
-   },
-
-
   {
     "zaldih/themery.nvim",
     lazy = false,
     config = function()
       require("themery").setup({
         themes = {
-          {
-            name = "OSC Colors",
-            colorscheme = "default",
-            after = [[require("osc-colors").refresh()]],
-          },
           "hardhat",
           "flume-dusk",
           "flume-opal",
@@ -211,7 +196,7 @@ return {
           "kintsugi-dark",
           "ember",
           "carvion",
-          "lume", 
+          "lume",
         },
         livePreview = true,
       })

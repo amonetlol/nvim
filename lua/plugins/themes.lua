@@ -152,6 +152,7 @@ return {
 
    {
     "mitander/flume.nvim",
+    version = "v0.2.0",
     lazy = false,
     priority = 900,
    },

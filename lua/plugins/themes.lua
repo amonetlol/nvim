@@ -164,6 +164,13 @@ return {
    },
 
   {
+    "oxidescheme/nvim",
+    name = "oxide",
+    lazy = false,
+    priority = 900,
+  },
+
+  {
     "zaldih/themery.nvim",
     lazy = false,
     config = function()
@@ -198,6 +205,7 @@ return {
           "ember",
           "carvion",
           "lume",
+          "oxide",
         },
         livePreview = true,
       })

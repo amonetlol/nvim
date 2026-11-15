@@ -6,7 +6,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 toggleterm.setup {
   size = 12,
   direction = "float",
-  open_mapping = [[<C-\>]],
+  -- sem open_mapping: o Ctrl+\ é definido abaixo (fecha QUALQUER terminal, inclusive <leader>tf/th)
 
   hide_numbers = true,
   shade_terminals = true,
@@ -61,7 +61,15 @@ end, { desc = "Terminal horizontal" })
 -- end, { desc = "LazyGit" })
 
 -- Atalho rápido alternativo
-vim.keymap.set({ "n", "t" }, "<C-\\>", "<cmd>ToggleTerm<CR>", {
+-- Ctrl+\: dentro de um terminal (qualquer um) esconde a janela; fora, abre/alterna o terminal padrão
+vim.keymap.set({ "n", "t" }, "<C-\\>", function()
+  if vim.bo.buftype == "terminal" then
+    vim.cmd "stopinsert"
+    vim.cmd "close"
+  else
+    vim.cmd "ToggleTerm"
+  end
+end, {
   desc = "Toggle terminal",
 })
 

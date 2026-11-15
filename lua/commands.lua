@@ -3,14 +3,8 @@
 -- Mason: instala todos os servidores e formatadores essenciais
 vim.api.nvim_create_user_command("MasonInstallAll", function()
   local ensure_installed = {
-    "css-lsp",
-    "html-lsp",
     "lua-language-server",
-    "typescript-language-server",
-    "json-lsp",
-    "bash-language-server",
     "stylua",
-    "prettier",
   }
 
   vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))

@@ -3,28 +3,11 @@
 return {
   formatters_by_ft = {
     lua = { "stylua" },
-
-    javascript = { "prettier" },
-    typescript = { "prettier" },
-    javascriptreact = { "prettier" },
-    typescriptreact = { "prettier" },
-
-    json = { "prettier" },
-    jsonc = { "prettier" },
-    html = { "prettier" },
-    css = { "prettier" },
-    scss = { "prettier" },
-    markdown = { "prettier" },
-    yaml = { "prettier" },
   },
 
+  -- só formata ao salvar arquivos Lua (os demais ficam como estão)
   format_on_save = function(bufnr)
-    local disabled_filetypes = {
-      c = true,
-      cpp = true,
-    }
-
-    if disabled_filetypes[vim.bo[bufnr].filetype] then
+    if vim.bo[bufnr].filetype ~= "lua" then
       return nil
     end
 

@@ -59,12 +59,7 @@ vim.lsp.config("lua_ls", {
 })
 
 local servers = {
-  "html",
-  "cssls",
   "lua_ls",
-  "ts_ls",
-  "jsonls",
-  "bashls",
 }
 
 vim.lsp.enable(servers)
